@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <title>
+            Admin
+        </title>
+    </head>
+<body>
+    
+    <h2 class="first" id="first">Hello </h2>
+    <script type='text/javascript'>//<![CDATA[ 
+        function myFunc(id){
+            updateRecords(id);    
+        }
+    //]]>  
+    </script>
+
+<form action="/admin/fetchAdmin" method="get">
+  <table>
+    <tr>
+        <th>#</th>
+            <th>Book Name</th>
+            <th>Author:</th>
+            <th>Cost</th>
+
+    </tr>
+   <% if(bookData ) { %>
+   
+   <% for(var i=0;i<bookData.length;i++) { %>
+    <tr>
+      
+        <td><%=i+1%></td>
+            <td><input type = "text" id="name_<%=bookData[i]._id%>"  name ="bookName" value =<%=bookData[i].bookName%>></td>
+             <td><input type = "text" id="auther_<%=bookData[i]._id%>" name="author" value = <%=bookData[i].author %>></td>
+             <td><input type="text" id="price_<%=bookData[i]._id%>" name= "price" value=<%=bookData[i].price %>></td>
+             <td><button type="button" class="updateRecords" id = "updateRecords<%=i%>" value =<%=bookData[i]._id%>  onClick="javascript:updateRecords(this.id)"   >Update</button></td>
+             <td><button type="button" class="deleteRecords" id= "deleteRecords<%=i%>" value =<%=bookData[i]._id%>>Delete</button></td>
+    </tr>
+    <% } %>
+    <%} %>
+    
+</table>
+<input type="submit" value ="search Inventory">
+</form><br><br>
+
+
+
+<form action="/admin/addDetails" method="post">
+    <label for="pageLoad">Please Enter below details:</label><br>
+   <label for="bookName">BOOK NAME:</label>
+    <input type ="text" name= "bookName"><br>
+   <label for="author">AUTHOR:</label>
+    <input type ="text" name= "author"><br>
+    <label for="prise">COST:</label>
+    <input type ="text" name= "price">
+    
+    <input type="submit" value ="Add Book">
+</form>
+
+
+<script type="text/javascript" src="/javascripts/adminFunc.js" ></script> 
+</body>
+
+</html>

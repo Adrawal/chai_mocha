@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <title>
+            Admin
+        </title>
+    </head>
+<body>
+    
+    <form action ="/admin/fetchRecords" method = "get" ><br><br>
+        <% for(var i=0;i<book.length;i++) {%>
+        <label for="bookName">Book Name:</label>
+        <%=book[i].bookName %><br>
+        
+        <label for ="author">Author:</label>
+        <%=book[i].author%><br>
+        <label for ="cost">Cost:</label>
+        <%=book[i].price %><br>
+        <input type="submit" value ="retrieve">
+        <% } %>
+    
+        <form action ="/admin/addDetails" method = "post" ><br><br>
+            <input type="submit" value ="Add Book">
+        </form>
+    
+        <form action ="/admin/updateDetails" method = "post" ><br><br>
+            <input type="submit" value ="update book">
+        </form>
+    
+        <form action ="/admin/removeRecords" method = "post" ><br><br>
+            <input type="submit" value ="delete">
+    
+    
+    
+        </form>
+    
+    
+    </form>
+   
+</body>
+
+</html>
+
